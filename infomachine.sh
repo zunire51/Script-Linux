@@ -82,6 +82,11 @@ echo "Liste des ports ouverts :"
 echo "$open_ports_list"
 
 # Récupérer la version et le nom du service réseau qui ouvre ses ports
-service_info=$(echo "$nmap_output" | awk '/\/(tcp|udp)/ {printf $1" "$2" "$3; for(i=4; i<=NF; i++) printf $i" "; print ""}')
+service_info=$(echo "$nmap_output" | awk '/\/(
+
+tcp|udp)/ {printf $1" "$2" "$3; for(i=4; i<=NF; i++) printf $i" "; print ""}')
 echo "Version et nom du service réseau :"
 echo "$service_info"
+```
+
+Ce nouveau format utilise des sections clairement délimitées et des titres pour chaque partie du script, facilitant ainsi la compréhension et la lecture lors de l'exécution.
